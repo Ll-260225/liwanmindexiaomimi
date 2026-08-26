@@ -11,7 +11,7 @@ import {
 } from "@phosphor-icons/react";
 import BlurText from "./components/BlurText";
 import ParticleText from "./components/ParticleText";
-import { localAsset, useLocalAssetFallback } from "./cosAssets";
+import { loadManifest, localAsset, useLocalAssetFallback } from "./cosAssets";
 import AdminPanel from "./AdminPanel";
 
 const strengths = [
@@ -37,6 +37,20 @@ export function App() {
   const [activeAsset, setActiveAsset] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
   const [content, setContent] = useState({ galleryAssets, projects: [], siteMedia: {}, profile: {} });
+
+  useEffect(() => {
+    loadManifest()
+      .then((saved) => {
+        if (!saved) return;
+        setContent((current) => ({
+          ...current,
+          ...saved,
+          galleryAssets: Array.isArray(saved.galleryAssets) ? saved.galleryAssets : current.galleryAssets,
+          projects: Array.isArray(saved.projects) ? saved.projects : current.projects,
+        }));
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const nodes = document.querySelectorAll("[data-reveal]");
