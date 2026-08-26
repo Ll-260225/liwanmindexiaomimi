@@ -68,10 +68,16 @@ export async function syncManifest(content) {
 }
 
 export async function loadManifest() {
-  const response = await fetch(`${cosUrl(CONTENT_MANIFEST_KEY)}?v=${Date.now()}`);
-  if (response.status === 404) return null;
-  if (!response.ok) throw new Error(`读取 COS 内容清单失败（HTTP ${response.status}）`);
-  return response.json();
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 3500);
+  try {
+    const response = await fetch(`${cosUrl(CONTENT_MANIFEST_KEY)}?v=${Date.now()}`, { signal: controller.signal });
+    if (response.status === 404) return null;
+    if (!response.ok) throw new Error(`读取 COS 内容清单失败（HTTP ${response.status}）`);
+    return response.json();
+  } finally {
+    window.clearTimeout(timeout);
+  }
 }
 
 // COS 文件尚未上传或暂时不可用时，继续使用随网站构建发布的本地资源。

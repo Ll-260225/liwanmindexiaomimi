@@ -24,12 +24,12 @@ const strengths = [
 const workflow = ["小说改写", "剧本分镜", "AI 资产图", "视频生成", "剪辑成片"];
 
 const galleryAssets = [
-  { id: "01", category: "characters", fileName: "project-jiuyou.png", label: "古风角色概念", alt: "暗色古风角色与遗迹场景的 AI 概念图" },
-  { id: "02", category: "characters", fileName: "project-mercenary.png", label: "末日场景资产", alt: "黑甲角色俯瞰废墟城池的 AI 场景图" },
-  { id: "03", category: "characters", fileName: "project-boundaries.png", label: "人物叙事画面", alt: "室内暖光人物对话的 AI 叙事画面" },
-  { id: "04", category: "scenes", fileName: "contact-lighthouse.png", label: "环境氛围概念", alt: "风暴海岸人物与灯塔的 AI 氛围图" },
-  { id: "05", category: "scenes", fileName: "hero-editor-studio.png", label: "夜景空间概念", alt: "夜间剪辑工作室的 AI 空间概念图" },
-  { id: "06", category: "characters", fileName: "portrait-editor-bw.png", label: "黑白人物研究", alt: "剪辑工作室人物的黑白 AI 视觉图" },
+  { id: "01", category: "characters", fileName: "project-jiuyou.jpg", label: "古风角色概念", alt: "暗色古风角色与遗迹场景的 AI 概念图" },
+  { id: "02", category: "characters", fileName: "project-mercenary.jpg", label: "末日场景资产", alt: "黑甲角色俯瞰废墟城池的 AI 场景图" },
+  { id: "03", category: "characters", fileName: "project-boundaries.jpg", label: "人物叙事画面", alt: "室内暖光人物对话的 AI 叙事画面" },
+  { id: "04", category: "scenes", fileName: "contact-lighthouse.jpg", label: "环境氛围概念", alt: "风暴海岸人物与灯塔的 AI 氛围图" },
+  { id: "05", category: "scenes", fileName: "hero-editor-studio.jpg", label: "夜景空间概念", alt: "夜间剪辑工作室的 AI 空间概念图" },
+  { id: "06", category: "characters", fileName: "portrait-editor-bw.jpg", label: "黑白人物研究", alt: "剪辑工作室人物的黑白 AI 视觉图" },
 ];
 
 export function App() {
@@ -120,9 +120,10 @@ export function App() {
           loop
           playsInline
           src={content.siteMedia.heroVideo || localAsset("hero-editor-studio.mp4")}
+          preload="metadata"
           data-fallback-src={localAsset("hero-editor-studio.mp4")}
           onError={useLocalAssetFallback}
-          poster={content.siteMedia.heroPoster || localAsset("hero-editor-studio.png")}
+          poster={content.siteMedia.heroPoster || localAsset("hero-editor-studio.jpg")}
           aria-hidden="true"
         >
           <source src={localAsset("hero-editor-studio.mp4")} type="video/mp4" />
@@ -164,7 +165,7 @@ export function App() {
 
       <section className="about" id="about">
         <div className="about-image" data-reveal>
-          <img src={content.siteMedia.portrait || localAsset("portrait-editor-bw.png")} data-fallback-src={localAsset("portrait-editor-bw.png")} onError={useLocalAssetFallback} alt="李万民在剪辑工作室工作的黑白人物照" />
+          <img src={content.siteMedia.portrait || localAsset("portrait-editor-bw.jpg")} data-fallback-src={localAsset("portrait-editor-bw.jpg")} onError={useLocalAssetFallback} alt="李万民在剪辑工作室工作的黑白人物照" loading="lazy" decoding="async" />
         </div>
         <div className="about-copy">
           <BlurText as="p" text="ABOUT" delay={100} className="eyebrow" />
@@ -234,7 +235,7 @@ export function App() {
               aria-label={`查看${asset.label}`}
               data-reveal
             >
-              <img src={asset.url || localAsset(asset.fileName)} data-fallback-src={asset.fileName ? localAsset(asset.fileName) : ""} onError={useLocalAssetFallback} alt={asset.alt} loading="lazy" />
+              <img src={asset.url || localAsset(asset.fileName)} data-fallback-src={asset.fileName ? localAsset(asset.fileName) : ""} onError={useLocalAssetFallback} alt={asset.alt} loading="lazy" decoding="async" />
               <span className="gallery-item-shade" />
               <span className="gallery-item-index">{String(index + 1).padStart(2, "0")} / {String(assets.length).padStart(2, "0")}</span>
               <span className="gallery-item-copy">
@@ -282,7 +283,7 @@ export function App() {
       </section>
 
       <section className="contact" id="contact">
-        <img src={content.siteMedia.contactBackground || localAsset("contact-lighthouse.png")} data-fallback-src={localAsset("contact-lighthouse.png")} onError={useLocalAssetFallback} alt="风暴海岸与远处灯塔的电影画面" />
+        <img src={content.siteMedia.contactBackground || localAsset("contact-lighthouse.jpg")} data-fallback-src={localAsset("contact-lighthouse.jpg")} onError={useLocalAssetFallback} alt="风暴海岸与远处灯塔的电影画面" loading="lazy" decoding="async" />
         <div className="contact-overlay" />
         <div className="contact-content page-shell">
           <BlurText as="p" text="CONTACT" delay={100} className="eyebrow" />
