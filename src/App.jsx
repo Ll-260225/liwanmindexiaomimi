@@ -11,7 +11,7 @@ import {
 } from "@phosphor-icons/react";
 import BlurText from "./components/BlurText";
 import ParticleText from "./components/ParticleText";
-import { cosAsset, loadManifest, localAsset, useLocalAssetFallback } from "./cosAssets";
+import { localAsset, useLocalAssetFallback } from "./cosAssets";
 import AdminPanel from "./AdminPanel";
 
 const strengths = [
@@ -37,10 +37,6 @@ export function App() {
   const [activeAsset, setActiveAsset] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
   const [content, setContent] = useState({ galleryAssets, projects: [], siteMedia: {}, profile: {} });
-
-  useEffect(() => {
-    loadManifest().then((saved) => { if (saved) setContent((current) => ({ ...current, ...saved, galleryAssets: Array.isArray(saved.galleryAssets) ? saved.galleryAssets : current.galleryAssets, projects: Array.isArray(saved.projects) ? saved.projects : current.projects })); }).catch(() => {});
-  }, []);
 
   useEffect(() => {
     const nodes = document.querySelectorAll("[data-reveal]");
@@ -109,13 +105,13 @@ export function App() {
           muted
           loop
           playsInline
-          src={content.siteMedia.heroVideo || cosAsset("hero-editor-studio.mp4")}
+          src={content.siteMedia.heroVideo || localAsset("hero-editor-studio.mp4")}
           data-fallback-src={localAsset("hero-editor-studio.mp4")}
           onError={useLocalAssetFallback}
-          poster={content.siteMedia.heroPoster || cosAsset("hero-editor-studio.png")}
+          poster={content.siteMedia.heroPoster || localAsset("hero-editor-studio.png")}
           aria-hidden="true"
         >
-          <source src={cosAsset("hero-editor-studio.mp4")} type="video/mp4" />
+          <source src={localAsset("hero-editor-studio.mp4")} type="video/mp4" />
         </video>
         <div className="hero-shade" />
         <div className="hero-content page-shell">
@@ -154,7 +150,7 @@ export function App() {
 
       <section className="about" id="about">
         <div className="about-image" data-reveal>
-          <img src={content.siteMedia.portrait || cosAsset("portrait-editor-bw.png")} data-fallback-src={localAsset("portrait-editor-bw.png")} onError={useLocalAssetFallback} alt="李万民在剪辑工作室工作的黑白人物照" />
+          <img src={content.siteMedia.portrait || localAsset("portrait-editor-bw.png")} data-fallback-src={localAsset("portrait-editor-bw.png")} onError={useLocalAssetFallback} alt="李万民在剪辑工作室工作的黑白人物照" />
         </div>
         <div className="about-copy">
           <BlurText as="p" text="ABOUT" delay={100} className="eyebrow" />
@@ -224,7 +220,7 @@ export function App() {
               aria-label={`查看${asset.label}`}
               data-reveal
             >
-              <img src={asset.url || cosAsset(asset.fileName)} data-fallback-src={asset.fileName ? localAsset(asset.fileName) : ""} onError={useLocalAssetFallback} alt={asset.alt} loading="lazy" />
+              <img src={asset.url || localAsset(asset.fileName)} data-fallback-src={asset.fileName ? localAsset(asset.fileName) : ""} onError={useLocalAssetFallback} alt={asset.alt} loading="lazy" />
               <span className="gallery-item-shade" />
               <span className="gallery-item-index">{String(index + 1).padStart(2, "0")} / {String(assets.length).padStart(2, "0")}</span>
               <span className="gallery-item-copy">
@@ -272,7 +268,7 @@ export function App() {
       </section>
 
       <section className="contact" id="contact">
-        <img src={content.siteMedia.contactBackground || cosAsset("contact-lighthouse.png")} data-fallback-src={localAsset("contact-lighthouse.png")} onError={useLocalAssetFallback} alt="风暴海岸与远处灯塔的电影画面" />
+        <img src={content.siteMedia.contactBackground || localAsset("contact-lighthouse.png")} data-fallback-src={localAsset("contact-lighthouse.png")} onError={useLocalAssetFallback} alt="风暴海岸与远处灯塔的电影画面" />
         <div className="contact-overlay" />
         <div className="contact-content page-shell">
           <BlurText as="p" text="CONTACT" delay={100} className="eyebrow" />
@@ -327,7 +323,7 @@ export function App() {
             >
               <X size={22} />
             </button>
-            <img src={activeAsset.url || cosAsset(activeAsset.fileName)} data-fallback-src={activeAsset.fileName ? localAsset(activeAsset.fileName) : ""} onError={useLocalAssetFallback} alt={activeAsset.alt} />
+            <img src={activeAsset.url || localAsset(activeAsset.fileName)} data-fallback-src={activeAsset.fileName ? localAsset(activeAsset.fileName) : ""} onError={useLocalAssetFallback} alt={activeAsset.alt} />
             <figcaption>
               <span>{activeAsset.id} / 06</span>
               <strong id="lightbox-title">{activeAsset.label}</strong>
