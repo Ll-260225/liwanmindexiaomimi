@@ -10,6 +10,8 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Selected visual direction
 
+- Projects no longer use background/cover images: remove project image uploads and rendering, while retaining project videos.
+
 - The user selected Product Design ideation option 3 on 2026-08-21.
 - Preserve the quiet black-box cinema/gallery direction: matte black surfaces, oversized Chinese typography, full-bleed cinematic imagery, near-invisible UI chrome, hairline dividers, and a single acid-lime playback accent.
 - Keep the page image-led and restrained. Avoid template-like card grids, decorative gradients, glassmorphism, neon cyberpunk styling, and excessive rounded corners.

@@ -580,7 +580,6 @@ img, video { display: block; width: 100%; }
 .project-view-panel header button { color:#fff; background:transparent; border:0; cursor:pointer; }
 .project-view-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
 .project-view-item { background:#151515; }
-.project-view-item > img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
 .project-view-item > div { padding:18px; }
 .project-view-item h3 { margin:8px 0; font-size:25px; }
 .project-view-item p { color:#aaa; line-height:1.6; }
