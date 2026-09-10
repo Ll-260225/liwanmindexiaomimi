@@ -42,9 +42,23 @@ export function App() {
 
   useEffect(() => {
     setContentError("");
-    loadManifest()
+    let cancelled = false;
+    let hasPublishedCopy = false;
+    const applyContent = (saved) => {
+      if (!saved || cancelled) return;
+      setContent((current) => ({ ...current, ...saved,
+        galleryAssets: Array.isArray(saved.galleryAssets) ? saved.galleryAssets : current.galleryAssets,
+        projects: Array.isArray(saved.projects) ? saved.projects : current.projects,
+      }));
+    };
+    const published = fetch(`${import.meta.env.BASE_URL}site/published-content.json`)
+      .then((response) => { if (!response.ok) throw new Error("备用清单不可用"); return response.json(); })
+      .then((saved) => { hasPublishedCopy = true; applyContent(saved); })
+      .catch(() => {});
+    const cloud = loadManifest().then((saved) => ({ saved }), (error) => ({ error }));
+    published.then(() => cloud).then(({ saved, error }) => { if (error) throw error; return saved; })
       .then((saved) => {
-        if (!saved) return;
+        if (!saved || cancelled) return;
         setContent((current) => ({
           ...current,
           ...saved,
@@ -52,7 +66,8 @@ export function App() {
           projects: Array.isArray(saved.projects) ? saved.projects : current.projects,
         }));
       })
-      .catch(() => setContentError("云端作品暂未加载成功，当前显示默认内容。请重试读取作品。"));
+      .catch(() => { if (!cancelled) setContentError(hasPublishedCopy ? "已显示最近发布的作品；云端暂不可达，编辑保存已暂停。" : "作品清单读取失败，请重试。"); });
+    return () => { cancelled = true; };
   }, [loadAttempt]);
 
   useEffect(() => {

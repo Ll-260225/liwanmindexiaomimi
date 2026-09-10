@@ -1,0 +1,184 @@
+{
+  "galleryAssets": [
+    {
+      "id": "01",
+      "category": "characters",
+      "fileName": "project-jiuyou.jpg",
+      "label": "古风角色概念",
+      "alt": "暗色古风角色与遗迹场景的 AI 概念图"
+    },
+    {
+      "id": "02",
+      "category": "characters",
+      "fileName": "project-mercenary.jpg",
+      "label": "末日场景资产",
+      "alt": "黑甲角色俯瞰废墟城池的 AI 场景图"
+    },
+    {
+      "id": "03",
+      "category": "characters",
+      "fileName": "project-boundaries.jpg",
+      "label": "人物叙事画面",
+      "alt": "室内暖光人物对话的 AI 叙事画面"
+    },
+    {
+      "id": "04",
+      "category": "scenes",
+      "fileName": "contact-lighthouse.jpg",
+      "label": "环境氛围概念",
+      "alt": "风暴海岸人物与灯塔的 AI 氛围图"
+    },
+    {
+      "id": "05",
+      "category": "scenes",
+      "fileName": "hero-editor-studio.jpg",
+      "label": "夜景空间概念",
+      "alt": "夜间剪辑工作室的 AI 空间概念图"
+    }
+  ],
+  "projects": [
+    {
+      "id": "2595f13c-2d14-41a9-9fdc-6f2551cdf6d9",
+      "category": "shortDrama",
+      "title": "巅峰归来",
+      "type": "AI漫剧",
+      "description": "含冤入狱3年，回来发现自己的家被邻居霸占",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1788948429689-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1788948430876-.mp4"
+    },
+    {
+      "id": "7ba25e64-a3d6-4d6d-8c9b-23cdad540a5c",
+      "category": "otherWorks",
+      "title": "打斗",
+      "type": "AI短片",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1788949198744-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1788949199520-.mp4"
+    },
+    {
+      "id": "c9bd4ddb-41ac-4731-bce7-d22d3b5bab7f",
+      "category": "otherWorks",
+      "title": "夜袭",
+      "type": "AI",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1788949554577-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1788949555378-.mp4"
+    },
+    {
+      "id": "0b697df7-f262-4419-aee9-6a8aea010a0d",
+      "category": "otherWorks",
+      "title": "跳舞",
+      "type": "AI",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789006542782-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789006545784-.mp4"
+    },
+    {
+      "id": "2756c6f7-2977-4057-8723-4fef93c70bad",
+      "category": "otherWorks",
+      "title": "古风",
+      "type": "AI",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789006847013-6-24---.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789006847823-6-24-.mp4"
+    },
+    {
+      "id": "9f137205-91de-4134-8284-07e7ec86fb3e",
+      "category": "otherWorks",
+      "title": ".",
+      "type": "宣传片",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789007613549-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789007614160-.mp4"
+    },
+    {
+      "id": "ab3f3f71-4552-4664-9adf-96efb07e20d4",
+      "category": "otherWorks",
+      "title": "陪拍",
+      "type": "vlog",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789007894575-vlog--.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789007895541-vlog.mp4"
+    },
+    {
+      "id": "fc3a2905-9b95-4a8c-a19e-931277427daa",
+      "category": "otherWorks",
+      "title": "口播",
+      "type": "口播",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789008579528-5-19---.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789008579948-5-19-.mp4"
+    },
+    {
+      "id": "b5721e29-47dc-4dfb-8003-fb8a2f08f217",
+      "category": "otherWorks",
+      "title": "口播",
+      "type": "口播",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789009159701-5-17---.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789009168135-5-17-.mp4"
+    },
+    {
+      "id": "3197fe49-457e-44af-9354-aaa4211be9b3",
+      "category": "otherWorks",
+      "title": "婚礼",
+      "type": "婚礼短片",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789011329269-4-30---.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789011329909-4-30-.mp4"
+    },
+    {
+      "id": "679a0abc-01f1-493d-b12e-5facc737e33e",
+      "category": "otherWorks",
+      "title": "陪拍",
+      "type": "vlog",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789012931412-9-10---.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789012932399-9-10-.mp4"
+    },
+    {
+      "id": "c4f7985b-9dea-4b0a-a595-58f784efa147",
+      "category": "otherWorks",
+      "title": "陪拍",
+      "type": "vlog",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789013145766-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789013146500-.mp4"
+    },
+    {
+      "id": "2c41d279-e001-4af2-a5e2-4ed00cb9bd65",
+      "category": "otherWorks",
+      "title": "口播",
+      "type": "口播",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789013418242-6-15---.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789013419092-6-15-.mp4"
+    },
+    {
+      "id": "e7ba46bb-fe6a-40db-bf76-299fb6f25fdc",
+      "category": "otherWorks",
+      "title": "远明老酒",
+      "type": "宣传片",
+      "description": "...",
+      "coverUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/projects/1789016193977-.jpg",
+      "videoUrl": "https://liwanmindexiaomimidewangzhan-1454067572.cos.ap-guangzhou.myqcloud.com/content/videos/1789016194648-.mp4"
+    }
+  ],
+  "siteMedia": {},
+  "profile": {
+    "companyName": "河南荧灿文化发展",
+    "companyPeriod": "2025—2026",
+    "experienceValue": "1+",
+    "experienceUnit": "年",
+    "projectValue": "8",
+    "projectUnit": "部+",
+    "aboutPrimary": "我叫李万民，是一名专注内容叙事与视觉表达的 AI 短剧剪辑师。熟悉真人短剧的粗剪、精剪与节奏把控，也能独立完成 AI 漫剧从小说改写、剧本分镜、资产图建立、视频生成到剪辑成片的完整流程。",
+    "aboutSecondary": "我相信，好故事既要被看见，也值得被更好的方式呈现。AI 是创作伙伴，让想象更高效地落地成片。",
+    "phone": "166 2511 6217",
+    "email": "13673958331@163.com",
+    "displayName": "李万民",
+    "heroRole": "剪辑师 / AI设计师 / AI漫剧",
+    "footerCopyright": "© 2024—2026 李万民 · 保留所有权利"
+  },
+  "updatedAt": "2026-09-10T05:01:48.559Z"
+}
