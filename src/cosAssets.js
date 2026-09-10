@@ -6,6 +6,7 @@ export const COS_PUBLIC_BASE_URL = `https://${COS_BUCKET}.cos.${COS_REGION}.myqc
 export const CONTENT_MANIFEST_KEY = "site/liwanmin-portfolio.json";
 
 const CONFIG_STORAGE_KEY = "liwanmin_cos_admin_config";
+let manifestLoaded = false;
 
 export function cosAsset(fileName) {
   return `${COS_PUBLIC_BASE_URL}/assets/${fileName}`;
@@ -61,6 +62,7 @@ export function uploadContentFile(file, folder) {
 }
 
 export async function syncManifest(content) {
+  if (!manifestLoaded) throw new Error("云端作品尚未读取成功，已暂停保存以保护原有内容。请刷新页面后重试。");
   const blob = new Blob([JSON.stringify({ ...content, updatedAt: new Date().toISOString() }, null, 2)], {
     type: "application/json",
   });
@@ -69,12 +71,15 @@ export async function syncManifest(content) {
 
 export async function loadManifest() {
   const controller = new AbortController();
-  const timeout = window.setTimeout(() => controller.abort(), 3500);
+  const timeout = window.setTimeout(() => controller.abort(), 20000);
   try {
     const response = await fetch(`${cosUrl(CONTENT_MANIFEST_KEY)}?v=${Date.now()}`, { signal: controller.signal });
-    if (response.status === 404) return null;
+    if (response.status === 404) { manifestLoaded = true; return null; }
     if (!response.ok) throw new Error(`读取 COS 内容清单失败（HTTP ${response.status}）`);
-    return response.json();
+    const saved = await response.json();
+    if (!saved || !Array.isArray(saved.projects) || !Array.isArray(saved.galleryAssets)) throw new Error("云端内容格式异常，已暂停保存。");
+    manifestLoaded = true;
+    return saved;
   } finally {
     window.clearTimeout(timeout);
   }

@@ -36,9 +36,12 @@ export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeAsset, setActiveAsset] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [contentError, setContentError] = useState("");
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [content, setContent] = useState({ galleryAssets, projects: [], siteMedia: {}, profile: {} });
 
   useEffect(() => {
+    setContentError("");
     loadManifest()
       .then((saved) => {
         if (!saved) return;
@@ -49,8 +52,8 @@ export function App() {
           projects: Array.isArray(saved.projects) ? saved.projects : current.projects,
         }));
       })
-      .catch(() => {});
-  }, []);
+      .catch(() => setContentError("云端作品暂未加载成功，当前显示默认内容。请重试读取作品。"));
+  }, [loadAttempt]);
 
   useEffect(() => {
     const nodes = document.querySelectorAll("[data-reveal]");
@@ -89,6 +92,7 @@ export function App() {
 
   return (
     <main>
+      {contentError && <div role="alert" style={{ position: "fixed", bottom: 16, left: 16, zIndex: 1000, background: "#222", color: "white", padding: 16, maxWidth: "80vw" }}>{contentError} <button type="button" onClick={() => setLoadAttempt((value) => value + 1)}>重新加载作品</button></div>}
       <header className="site-header">
         <a className="chapter-mark" href="#home" aria-label="返回首页">
           <span /> 01 · 首页
@@ -351,7 +355,7 @@ export function App() {
           <button className="project-view-backdrop" type="button" onClick={() => setActiveCategory(null)} aria-label="关闭项目列表" />
           <section className="project-view-panel">
             <header><div><small>{activeCategory.label}</small><h2 id="project-view-title">{activeCategory.title}</h2></div><button type="button" onClick={() => setActiveCategory(null)} aria-label="关闭"><X size={22} /></button></header>
-            {activeCategory.projects.length ? <div className="project-view-grid">{activeCategory.projects.map((project) => <article key={project.id} className="project-view-item"><div><small>{project.type}</small><h3>{project.title}</h3><p>{project.description}</p>{project.videoUrl ? <video controls preload="metadata" playsInline src={project.videoUrl} aria-label={`播放${project.title}`} /> : <span className="project-view-empty">暂未上传视频</span>}</div></article>)}</div> : <p className="project-view-empty">这里还没有项目，请通过右下角内容管理添加。</p>}
+            {activeCategory.projects.length ? <div className="project-view-grid">{activeCategory.projects.map((project) => <article key={project.id} className="project-view-item">{project.coverUrl && <img src={project.coverUrl} alt={`${project.title}封面`} />}<div><small>{project.type}</small><h3>{project.title}</h3><p>{project.description}</p>{project.videoUrl ? <video controls preload="metadata" playsInline src={project.videoUrl} aria-label={`播放${project.title}`} /> : <span className="project-view-empty">暂未上传视频</span>}</div></article>)}</div> : <p className="project-view-empty">这里还没有项目，请通过右下角内容管理添加。</p>}
           </section>
         </div>
       )}
