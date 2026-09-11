@@ -35,6 +35,7 @@ const galleryAssets = [
 export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeAsset, setActiveAsset] = useState(null);
+  const [galleryPages, setGalleryPages] = useState({ characters: 0, scenes: 0 });
   const [activeCategory, setActiveCategory] = useState(null);
   const [contentError, setContentError] = useState("");
   const [loadAttempt, setLoadAttempt] = useState(0);
@@ -244,26 +245,33 @@ export function App() {
         <div className="gallery-groups page-shell">
           {[ ["characters", "人物资产图", "CHARACTER ASSETS"], ["scenes", "场景资产图", "SCENE ASSETS"] ].map(([category, title, label]) => {
             const assets = content.galleryAssets.filter((asset) => (asset.category || "characters") === category);
-            return <section className="gallery-group" key={category}><div className="gallery-group-title"><small>{label}</small><h3>{title}</h3><span>{assets.length.toString().padStart(2, "0")}</span></div><div className="gallery-grid">
-          {assets.map((asset, index) => (
+            const pageCount = Math.max(1, Math.ceil(assets.length / 5));
+            const page = Math.min(galleryPages[category], pageCount - 1);
+            const goToPage = (next) => setGalleryPages((current) => ({ ...current, [category]: next }));
+            return <section className="gallery-group" key={category}><div className="gallery-group-title"><small>{label}</small><h3>{title}</h3><span>{assets.length.toString().padStart(2, "0")}</span></div><div className="gallery-grid gallery-grid--paged">
+          {assets.slice(page * 5, page * 5 + 5).map((asset, index) => (
             <button
               className={`gallery-item gallery-item--${index + 1}`}
               type="button"
               key={asset.id}
               onClick={() => setActiveAsset(asset)}
               aria-label={`查看${asset.label}`}
-              data-reveal
             >
               <img src={asset.url || localAsset(asset.fileName)} data-fallback-src={asset.fileName ? localAsset(asset.fileName) : ""} onError={useLocalAssetFallback} alt={asset.alt} loading="lazy" decoding="async" />
               <span className="gallery-item-shade" />
-              <span className="gallery-item-index">{String(index + 1).padStart(2, "0")} / {String(assets.length).padStart(2, "0")}</span>
+              <span className="gallery-item-index">{String(page * 5 + index + 1).padStart(2, "0")} / {String(assets.length).padStart(2, "0")}</span>
               <span className="gallery-item-copy">
                 <BlurText as="small" text="AI GENERATED ASSET" delay={55} />
                 <BlurText as="strong" text={asset.label} delay={85} />
               </span>
             </button>
           ))}
-            </div></section>;
+            </div><nav className="gallery-pagination" aria-label={`${title}分页`}>
+              <button type="button" disabled={page === 0} onClick={() => goToPage(page - 1)}>← 上一页</button>
+              <div className="gallery-page-track">{Array.from({ length: pageCount }, (_, index) => <button type="button" key={index} className={index === page ? "is-current" : ""} aria-label={`${title}第${index + 1}页`} aria-current={index === page ? "page" : undefined} onClick={() => goToPage(index)} />)}</div>
+              <span className="gallery-page-count" aria-live="polite"><strong>{String(page + 1).padStart(2, "0")}</strong> / {String(pageCount).padStart(2, "0")}</span>
+              <button type="button" disabled={page === pageCount - 1} onClick={() => goToPage(page + 1)}>下一页 →</button>
+            </nav></section>;
           })}
         </div>
       </section>

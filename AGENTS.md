@@ -10,6 +10,8 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Selected visual direction
 
+- AI image assets use independent character/scene pagination with five images per page: one large left tile and four right tiles, lime progress markers and inset hover outlines. Preserve all asset data and uploads when changing this presentation.
+
 - Remove only the project background image upload field and its upload requirement. Preserve existing project images, videos, and cloud content.
 
 - The user selected Product Design ideation option 3 on 2026-08-21.
