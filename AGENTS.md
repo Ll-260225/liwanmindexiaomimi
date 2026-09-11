@@ -10,7 +10,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Selected visual direction
 
-- Omit the representative-project count from the About statistics; preserve project content and all other profile information.
+- Omit the representative-project count from both About statistics and admin editing fields/validation; preserve project content and all other profile information.
 
 - AI image assets use independent character/scene pagination with five images per page: one large left tile and four right tiles, lime progress markers and inset hover outlines. Preserve all asset data and uploads when changing this presentation.
 
