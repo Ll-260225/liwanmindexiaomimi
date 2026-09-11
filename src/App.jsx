@@ -200,7 +200,6 @@ export function App() {
           />
           <div className="about-meta" data-reveal>
             <div><span>经历</span><strong>{content.profile?.experienceValue || "2+"}<small>{content.profile?.experienceUnit || "年"}</small></strong></div>
-            <div><span>代表项目</span><strong>{content.profile?.projectValue || "8"}<small>{content.profile?.projectUnit || "部+"}</small></strong></div>
             <div><span>制作能力</span><strong>全流程</strong></div>
             <div><span>任职公司</span><b>{content.profile?.companyName || "河南荧灿文化发展"}<br />{content.profile?.companyPeriod || "2024—2026"}</b></div>
           </div>

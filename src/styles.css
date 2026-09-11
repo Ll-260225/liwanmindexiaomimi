@@ -220,7 +220,7 @@ img, video { display: block; width: 100%; }
 
 .about-meta {
   display: grid;
-  grid-template-columns: 0.7fr 0.9fr 1fr 1.6fr;
+  grid-template-columns: 0.7fr 1fr 1.6fr;
   margin-top: 58px;
   padding-top: 26px;
   border-top: 1px solid var(--line);
